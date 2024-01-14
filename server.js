@@ -14,6 +14,25 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+// Swagger api config
+// swagger api options
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Job Portal Application",
+      description: "Node Expressjs Job Portal Application",
+    },
+    servers: [
+      {
+        //url: "http://localhost:8080",
+        url: "https://nodejs-job-portal-app.onrender.com",
+      },
+    ],
+  },
+  apis: ["./routes/*.js"],
+};
+
 
 //routes
 //app.use("/api/v1/test", testRoutes);
